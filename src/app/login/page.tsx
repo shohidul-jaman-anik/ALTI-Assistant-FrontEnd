@@ -88,8 +88,8 @@ function LoginForm() {
           <Image
             src="/assets/logo-icon.png"
             alt="logo"
-            height={60}
-            width={60}
+            height={40}
+            width={40}
           />
         </Link>
       </div>

@@ -31,7 +31,7 @@ function App() {
       className={cn(
         'flex h-[calc(100vh-70px)] flex-col items-center justify-center lg:h-screen',
       )}
-      style={{backgroundColor:"#FFFFFF"}}
+      style={{backgroundColor:"#FCFCFC"}}
     >
       {activeConversation?.knowledgebaseId && (
         <h1 className="mb-8 text-4xl font-medium">

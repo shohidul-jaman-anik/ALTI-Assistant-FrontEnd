@@ -83,7 +83,7 @@ export default function ConversationsList() {
   }
 
   return (
-    <div className="mt-2 h-[calc(100vh-60px)] overflow-y-auto" style={{backgroundColor:"#f9f9f9"}}>
+    <div className="mt-2 h-[calc(100vh-60px)] overflow-y-auto" style={{backgroundColor:"#F2F3F5"}}>
       {conversations.map(chat => (
         <div
           className="group flex h-9 w-full items-center justify-between rounded-md text-sm font-medium text-black hover:bg-black/5"

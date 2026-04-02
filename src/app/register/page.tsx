@@ -28,9 +28,8 @@ import { Input } from '@/components/ui/input';
 import { Building2, Eye, EyeOff } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Suspense, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
 
 function RegisterForm() {
   const router = useRouter();
@@ -118,8 +117,8 @@ function RegisterForm() {
           <Image
             src="/assets/logo-icon.png"
             alt="logo"
-            height={60}
-            width={60}
+            height={40}
+            width={40}
           />
         </Link>
       </div>
@@ -127,14 +126,27 @@ function RegisterForm() {
         <div className="flex h-[calc(100vh-80px)] items-center justify-center">
           <div className="flex w-full max-w-sm flex-col items-center gap-6 px-8">
             <div className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
-              <svg className="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              <svg
+                className="h-8 w-8 text-blue-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
               </svg>
             </div>
             <div className="text-center">
-              <h2 className="text-2xl font-bold text-gray-900">Check Your Email</h2>
+              <h2 className="text-2xl font-bold text-gray-900">
+                Check Your Email
+              </h2>
               <p className="mt-2 text-sm text-gray-600">
-                We&apos;ve sent a 6-digit verification code to your email address.
+                We&apos;ve sent a 6-digit verification code to your email
+                address.
               </p>
             </div>
             <div className="w-full space-y-4">
@@ -144,14 +156,16 @@ function RegisterForm() {
                 maxLength={6}
                 placeholder="Enter 6-digit code"
                 value={verifyCode}
-                onChange={(e) => {
+                onChange={e => {
                   setVerifyCode(e.target.value.replace(/\D/g, '').slice(0, 6));
                   setVerifyError(null);
                 }}
                 className="w-full border-none bg-gray-100 text-center text-xl tracking-[0.5em] focus-visible:ring-0"
               />
               {verifyError && (
-                <p className="text-center text-sm text-red-500">{verifyError}</p>
+                <p className="text-center text-sm text-red-500">
+                  {verifyError}
+                </p>
               )}
               <Button
                 onClick={handleVerify}
@@ -170,7 +184,7 @@ function RegisterForm() {
                   setVerifyCode('');
                   setVerifyError(null);
                 }}
-                className="w-full text-center text-sm text-gray-500 hover:text-gray-700 underline"
+                className="w-full text-center text-sm text-gray-500 underline hover:text-gray-700"
               >
                 Back to registration
               </button>
@@ -191,7 +205,8 @@ function RegisterForm() {
                   <Building2 className="mt-0.5 size-4 shrink-0 text-blue-600 dark:text-blue-400" />
                   <p className="text-sm text-blue-900 dark:text-blue-100">
                     You&apos;ve been invited to join{' '}
-                    <span className="font-semibold">{tenantName}</span> — create your account to continue.
+                    <span className="font-semibold">{tenantName}</span> — create
+                    your account to continue.
                   </p>
                 </div>
               )}
@@ -214,7 +229,7 @@ function RegisterForm() {
                             placeholder="Email"
                             readOnly={isInvited}
                             className={`max-w-md border-none bg-gray-100 focus-visible:ring-0${
-                              isInvited ? ' cursor-not-allowed opacity-70' : ''
+                              isInvited ? 'cursor-not-allowed opacity-70' : ''
                             }`}
                           />
                         </FormControl>
@@ -222,9 +237,16 @@ function RegisterForm() {
                       </FormItem>
                     )}
                   />
-                  <div className='relative'>
-                    <div onClick={() => setIsPasswordVisible(!isPasswordVisible)} className='absolute right-2 cursor-pointer top-2'>
-                      {isPasswordVisible ? <EyeOff className='text-[#7f7f7f] size-5.5' /> : <Eye className='text-[#7f7f7f] size-5.5' />}
+                  <div className="relative">
+                    <div
+                      onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+                      className="absolute top-2 right-2 cursor-pointer"
+                    >
+                      {isPasswordVisible ? (
+                        <EyeOff className="size-5.5 text-[#7f7f7f]" />
+                      ) : (
+                        <Eye className="size-5.5 text-[#7f7f7f]" />
+                      )}
                     </div>
                     <FormField
                       control={form.control}
@@ -234,7 +256,7 @@ function RegisterForm() {
                           <FormControl>
                             <Input
                               {...field}
-                              type={isPasswordVisible ? "text" : "password"}
+                              type={isPasswordVisible ? 'text' : 'password'}
                               id="password"
                               placeholder="Password"
                               className="max-w-md border-none bg-gray-100 focus-visible:ring-0"
@@ -246,10 +268,18 @@ function RegisterForm() {
                       )}
                     />
                   </div>
-                  <div className='relative'>
-
-                    <div onClick={() => setIsConfirmPasswordVisible(!isConfirmPasswordVisible)} className='absolute right-2 cursor-pointer top-2'>
-                      {isConfirmPasswordVisible ? <EyeOff className='text-[#7f7f7f] size-5.5' /> : <Eye className='text-[#7f7f7f] size-5.5' />}
+                  <div className="relative">
+                    <div
+                      onClick={() =>
+                        setIsConfirmPasswordVisible(!isConfirmPasswordVisible)
+                      }
+                      className="absolute top-2 right-2 cursor-pointer"
+                    >
+                      {isConfirmPasswordVisible ? (
+                        <EyeOff className="size-5.5 text-[#7f7f7f]" />
+                      ) : (
+                        <Eye className="size-5.5 text-[#7f7f7f]" />
+                      )}
                     </div>
 
                     <FormField
@@ -260,7 +290,9 @@ function RegisterForm() {
                           <FormControl>
                             <Input
                               {...field}
-                              type={isConfirmPasswordVisible ? "text" : "password"}
+                              type={
+                                isConfirmPasswordVisible ? 'text' : 'password'
+                              }
                               id="confirmPassword"
                               placeholder="Confirm password"
                               className="max-w-md border-none bg-gray-100 focus-visible:ring-0"
@@ -305,6 +337,7 @@ function RegisterForm() {
               height={250}
               width={250}
               alt="logo"
+              
             />
           </div>
         </div>

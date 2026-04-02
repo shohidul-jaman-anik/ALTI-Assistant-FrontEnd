@@ -100,7 +100,7 @@ export default function ProtectedLayout({
             ' sticky top-0 left-0 hidden h-screen flex-col transition-all duration-300 ease-in-out sm:hidden md:flex',
             isLeftSidebarOpen ? 'w-68' : 'w-10',
           )}
-          style={{backgroundColor:"#f9f9f9"}}
+          style={{backgroundColor:"#F2F3F5"}}
         >
           <LeftSideNav />
         </div>

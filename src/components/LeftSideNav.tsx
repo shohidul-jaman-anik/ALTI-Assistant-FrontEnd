@@ -69,13 +69,13 @@ const LeftSideNav = () => {
 
   return (
     <>
-      <div className=" pt-4 pb-2" style={{backgroundColor:"#f9f9f9"}}>
+      <div className=" pt-4 pb-2" style={{backgroundColor:"#F2F3F5"}}>
         <div
           className={cn(
             ' sticky top-0 z-30 flex items-center justify-between px-4 pt-2',
             hideSidebar && 'justify-center',
           )}
-          style={{backgroundColor:"#f9f9f9"}}
+          style={{backgroundColor:"#F2F3F5"}}
         >
           <div
             className={cn(
@@ -237,7 +237,7 @@ const LeftSideNav = () => {
             'flex flex-1 flex-col overflow-y-scroll px-4',
             hideSidebar && 'hidden',
           )}
-          style={{backgroundColor:"#f9f9f9"}}
+          style={{backgroundColor:"#F2F3F5"}}
         >
           <ConversationsList />
         </div>
@@ -250,7 +250,7 @@ const LeftSideNav = () => {
           ' sticky bottom-0 z-30 flex h-20 items-center justify-center p-4 py-1.5',
           hideSidebar && 'hidden',
         )}
-        style={{backgroundColor:"#f9f9f9"}}
+        style={{backgroundColor:"#F2F3F5"}}
       >
         {!isLoggedIn ? (
           <div className="flex items-center space-x-2">
